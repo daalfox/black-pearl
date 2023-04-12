@@ -35,7 +35,6 @@ impl Node<(), Payload> for UniqueNode {
                 serde_json::to_writer(&mut *output, &reply)
                     .context("serialize response to echo")?;
                 output.write_all(b"\n").context("write trailing newline")?;
-                self.id += 1;
             }
             Payload::GenerateOk { .. } => {}
         }
